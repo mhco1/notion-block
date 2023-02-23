@@ -1,0 +1,125 @@
+<script>
+    function jump(node) {
+        setTimeout(() => {
+            node.classList.add('letter-start')
+        }, 100);
+        setTimeout(() => {
+            node.classList.remove('letter-start')
+            node.classList.add('letter-end')
+        }, 1000);
+        setTimeout(() => {
+            node.classList.remove('letter-end')
+        }, 2000);
+    }
+
+    window.onload = function () {
+        const HTMLtext = document.querySelector('#text');
+        const HTMLspam = document.querySelector('#text-spam');
+        const HTMLapi = document.querySelector('#api');
+
+        function scrollWord3() {
+            setTimeout(() => {
+                [...HTMLtext.childNodes].map(node => node.classList.add('letter-normal'))
+            }, 1000);
+        }
+
+        function scrollWord2(counter) {
+            setTimeout(() => {
+                if (counter < HTMLtext.childNodes.length) {
+                    jump(HTMLtext.childNodes[counter]);
+                    return scrollWord2(counter + 1);
+                }
+
+                return scrollWord3()
+            }, 150)
+        }
+
+        function scrollWord(word) {
+            setTimeout(() => {
+                let letter = word[0];
+                let node = document.createElement('h1');
+                node.innerText = letter;
+
+                if (word.length > 0) {
+                    HTMLtext.append(node);
+                    jump(node);
+                    return scrollWord(word.slice(1, word.length));
+                }
+
+                return scrollWord2(0)
+            }, 150)
+        }
+
+        scrollWord(HTMLspam.innerText);
+
+        fetch('http://localhost:5678/webhook/test')
+            .then((res)=>res.text())
+            .then((res)=>HTMLapi.innerText = res)
+    }
+
+</script>
+
+<style>
+    body,
+    html {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+    }
+
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgb(143, 255, 255);
+    }
+
+    .main {
+        width: fit-content;
+    }
+
+    #text {
+        display: flex;
+        width: 100%;
+        color: rgb(90, 101, 255);
+    }
+
+    #text h1 {
+        white-space: pre;
+        opacity: 0.5;
+        font-size: 1.5rem;
+        padding-right: 10px;
+        transition: all 1s ease;
+    }
+
+    #text h1.letter-normal {
+        white-space: pre;
+        opacity: 1;
+        font-size: 2rem;
+        transform: translateX(-10px);
+        transition: all 1s ease;
+    }
+
+    #text h1.letter-start {
+        opacity: 1;
+        font-size: 2rem;
+        transform: translate(10px, -25px) rotate(-5deg);
+    }
+
+    #text h1.letter-end {
+        opacity: 0.7;
+        transform: translate(0px, 10px) rotate(2deg);
+    }
+
+    #text-spam {
+        height: 1px;
+        margin: 0px;
+        padding-right: calc(18*10px);
+        opacity: 0;
+    }
+</style>
+<div class="main">
+    <div id="text"></div>
+    <h1 id="text-spam">Embed on notion...</h1>
+    <p id="api"></p>
+</div>
