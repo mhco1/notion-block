@@ -1,7 +1,7 @@
 import imp from './imp.js'
 const { html, generate, api, hook } = imp;
 
-window.onload = function () {
+//window.onload = function () {
     try {
         const query = generate.query();
         hook.set(query.hook)
@@ -21,4 +21,4 @@ window.onload = function () {
         html.main.append(html.err(err));
         console.error(err);
     }
-}
+//}

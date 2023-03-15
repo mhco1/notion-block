@@ -14,6 +14,8 @@ export default ({manyKey})=>({
     ...manyKey(['week'], 'data-week', 'week', 'dtw'),
     ...manyKey(['month'], 'date-month', 'month', 'dtm'),
 
+    tag:'tag',
+    //...manyKey(['tag'], 'tag'), // op
     //...manyKey(['checkbox'], 'checkbox', 'check'), // op
     //...manyKey(['radio'], 'radio', 'rad'), // op
     //...manyKey(['select'], 'select', 'option', 'op'), // op
