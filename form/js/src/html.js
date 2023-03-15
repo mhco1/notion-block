@@ -1,4 +1,4 @@
-export default ({ callback }) => {
+export default ({ callback, removeSelf }) => {
     const html = {
         main: document.getElementById('main'),
         err(err) {
@@ -59,8 +59,41 @@ export default ({ callback }) => {
             )
             return div
         },
+        
+        info: (()=>{
+            const main = document.getElementById('main');
+            const div = document.createElement('div');
+            div.id = 'info'
+            div.classList.add('position-absolute', 'bottom-0', 'end-0','d-flex','flex-column','gap-0','m-3')
+            main.append(div);
 
-        test: () => callback,
+            return div            
+        })(),
+
+        infoItem(success, msg='') {
+            const div = document.createElement('div');
+            div.classList.add('alert','info');
+            if (success) {
+                div.classList.add('alert-success');
+                div.innerText = msg ? msg : 'Form was submit with success';
+            } else {
+                div.classList.add('alert-danger');
+                div.innerText = msg ? msg : 'Error on submit form'
+            }
+
+            setTimeout(()=>{
+                div.classList.add('info-on');
+            },1)
+
+            setTimeout(()=>{
+                div.classList.remove('info-on');
+                setTimeout(()=>{
+                    removeSelf(div);
+                },500)
+            },2500)
+
+            return div
+        }
     }
 
     return html

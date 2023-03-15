@@ -15,7 +15,12 @@ const { html, generate, api, hook } = imp;
 
         api.testConnection();
 
-        html.main.classList.add('d-flex','flex-column','gap-3')
+        html.main.classList.add('d-flex','flex-column','gap-3');
+        //document.body.append(html.info('success: test ok', true));
+        
+        //setTimeout(()=> html.info.append(html.infoItem(true)),1000)
+        //setTimeout(()=> html.info.append(html.infoItem(false)),2000)
+        //setTimeout(()=> html.info.append(html.infoItem(true)),3000)
         html.main.append(...main, ...button);
     } catch (err) {
         html.main.innerHTML = '';

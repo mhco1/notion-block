@@ -32,17 +32,17 @@
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-/*   @media (prefers-reduced-motion: reduce) {
+  @media (prefers-reduced-motion: reduce) {
     .bootstrap-tagsinput {
       transition: none;
     }
-  } */
-/*   .bootstrap-tagsinput[type=file] {
+  }
+  .bootstrap-tagsinput[type=file] {
     overflow: hidden;
-  } */
-/*   .bootstrap-tagsinput[type=file]:not(:disabled):not([readonly]) {
+  }
+  .bootstrap-tagsinput[type=file]:not(:disabled):not([readonly]) {
     cursor: pointer;
-  } */
+  }
 .bootstrap-tagsinput:has(input:focus) {
   color: #212529;
   background-color: #fff;
@@ -51,13 +51,13 @@
   box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
 }
 
-/*   .bootstrap-tagsinput::-webkit-date-and-time-value {
+  .bootstrap-tagsinput::-webkit-date-and-time-value {
     height: 1.5em;
-  } */
-/*   .bootstrap-tagsinput::-moz-placeholder {
+  }
+  .bootstrap-tagsinput::-moz-placeholder {
     color: #6c757d;
     opacity: 1;
-  } */
+  }
 .bootstrap-tagsinput::placeholder {
   color: #6c757d;
   opacity: 1;
@@ -68,7 +68,7 @@
   opacity: 1;
 }
 
-/* .bootstrap-tagsinput::-webkit-file-upload-button {
+.bootstrap-tagsinput::-webkit-file-upload-button {
     padding: 0.375rem 0.75rem;
     margin: -0.375rem -0.75rem;
     -webkit-margin-end: 0.75rem;
@@ -83,8 +83,8 @@
     border-radius: 0;
     -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  } */
-/* .bootstrap-tagsinput::file-selector-button {
+  }
+.bootstrap-tagsinput::file-selector-button {
     padding: 0.375rem 0.75rem;
     margin: -0.375rem -0.75rem;
     -webkit-margin-end: 0.75rem;
@@ -98,8 +98,8 @@
     border-inline-end-width: 1px;
     border-radius: 0;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  } */
-/*   @media (prefers-reduced-motion: reduce) {
+  }
+  @media (prefers-reduced-motion: reduce) {
     .bootstrap-tagsinput::-webkit-file-upload-button {
       -webkit-transition: none;
       transition: none;
@@ -107,11 +107,11 @@
     .bootstrap-tagsinput::file-selector-button {
       transition: none;
     }
-  } */
-/* .bootstrap-tagsinput:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+  }
+.bootstrap-tagsinput:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
   background-color: #dde0e3;
-} */
+}
 
-/* .bootstrap-tagsinput:hover:not(:disabled):not([readonly])::file-selector-button {
+.bootstrap-tagsinput:hover:not(:disabled):not([readonly])::file-selector-button {
   background-color: #dde0e3;
-} */
+}

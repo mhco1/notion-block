@@ -21,11 +21,22 @@ const imp = {
         get: ()=>hook,
     },
 
+//---
+
+    removeSelf(element){
+        const parent = element.parentElement;
+        const newChildren = [...parent.children].filter(el => el !== parent);
+        parent.innerHTML = '';
+        parent.append(...newChildren);
+    },
+
     manyKey([value], ...keys) {
         let res = {};
         keys.map(el => res[el] = value);
         return res
     },
+
+//---
 
     check: {
         get input() { return checkInput(imp) },
