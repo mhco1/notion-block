@@ -15,6 +15,7 @@ const { html, generate, api, hook } = imp;
 
         api.testConnection();
 
+        html.main.classList.add('d-flex','flex-column','gap-3')
         html.main.append(...main, ...button);
     } catch (err) {
         html.main.innerHTML = '';

@@ -26,7 +26,8 @@ export default ({ callback }) => {
             let arr = Object.keys(opGroup)
                 .filter(el => el !== 'group' && el !== '')
                 .map(el => {
-                    callback.group[el].group(div, opGroup[el])
+                    typeof callback.group[el].group !== 'undefined' &&
+                        callback.group[el].group(div, opGroup[el]);
                 })
             div.append(
                 ...opGroup.group.map(el => html.input(el, opGroup))
@@ -43,14 +44,15 @@ export default ({ callback }) => {
             Object.keys(opGroup)
                 .filter(el => el !== 'group' && el !== '')
                 .map(el => {
-                    callback.group[el].input(div, opGroup[el])
+                    typeof callback.group[el].input !== 'undefined' &&
+                        callback.group[el].input(div, opGroup[el])
                 })
             return div
         },
 
         button(opButton) {
             const div = document.createElement('div');
-            div.classList.add('mt-2');
+            //div.classList.add('mt-2');
             div.append(
                 ...Object.keys(opButton)
                     .map(el => callback.button[opButton[el]](el))

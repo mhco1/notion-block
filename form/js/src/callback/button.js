@@ -1,6 +1,6 @@
 
 export default ({ callback }) => ({
-    normal(value, hook) {
+    normal(value) {
         const button = document.createElement('button');
         button.setAttribute('type', 'button');
         button.classList.add('btn', 'btn-primary', 'me-2');
