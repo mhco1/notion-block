@@ -29,7 +29,7 @@ export default ({ manyKey }) => ({
 
         return {
             node: [label, input],
-            get: () => input.value
+            get: () => input.value.split(',')
         }
     }
 })
