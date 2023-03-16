@@ -3,7 +3,7 @@ export default ({ manyKey }) => ({
     ...manyKey([{
         group(div, value) {
             if (value === true) {
-                div.classList.add('d-flex', 'flex-row','gap-3');
+                div.classList.add('d-flex', 'flex-row','align-items-end','gap-3');
             }
         },
         //input(div, value) {
@@ -16,7 +16,7 @@ export default ({ manyKey }) => ({
     ...manyKey([{
         group(div, value) {
             if (value === true) {
-                div.classList.add('d-flex', 'flex-column','gap-3');
+                div.classList.add('d-flex', 'flex-column','justify-content-start','gap-3');
             }
         },
         //input(div, value) {

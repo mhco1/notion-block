@@ -51,28 +51,23 @@ export default ({ callback, removeSelf }) => {
         },
 
         button(opButton) {
-            const div = document.createElement('div');
-            //div.classList.add('mt-2');
-            div.append(
-                ...Object.keys(opButton)
-                    .map(el => callback.button[opButton[el]](el))
-            )
-            return div
+            return Object.keys(opButton)
+                .map(el => callback.button[opButton[el]](el))
         },
-        
-        info: (()=>{
+
+        info: (() => {
             const main = document.getElementById('main');
             const div = document.createElement('div');
             div.id = 'info'
-            div.classList.add('position-absolute', 'bottom-0', 'end-0','d-flex','flex-column','gap-0','m-3')
+            div.classList.add('position-absolute', 'bottom-0', 'end-0', 'd-flex', 'flex-column', 'gap-0', 'm-3')
             main.append(div);
 
-            return div            
+            return div
         })(),
 
-        infoItem(success, msg='') {
+        infoItem(success, msg = '') {
             const div = document.createElement('div');
-            div.classList.add('alert','info');
+            div.classList.add('alert', 'info');
             if (success) {
                 div.classList.add('alert-success');
                 div.innerText = msg ? msg : 'Form was submit with success';
@@ -81,16 +76,16 @@ export default ({ callback, removeSelf }) => {
                 div.innerText = msg ? msg : 'Error on submit form'
             }
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 div.classList.add('info-on');
-            },1)
+            }, 1)
 
-            setTimeout(()=>{
+            setTimeout(() => {
                 div.classList.remove('info-on');
-                setTimeout(()=>{
+                setTimeout(() => {
                     removeSelf(div);
-                },500)
-            },2500)
+                }, 500)
+            }, 2500)
 
             return div
         }
