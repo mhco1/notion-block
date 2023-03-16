@@ -4,9 +4,19 @@ export default ({ conf, hook, html }) => {
         console.error(err);
     }
 
+    let {host, port, path} = conf.api;
+    let test= false;
+    hook = hook.get();
+
+    if(hook[0] == '*'){
+        path += '-test';
+        hook = hook.slice(1);
+        test = true;
+    }
+
     return {
-        ...conf.api,
-        url: `http://${conf.api.host}:${conf.api.port}/${conf.api.path}/`,
+        host,port,path,hook, test,
+        url: `http://${host}:${port}/${path}/`,
 
         testConnection() {
             fetch(this.url + 'testConnectionGet')
@@ -24,7 +34,7 @@ export default ({ conf, hook, html }) => {
                 body: JSON.stringify(data),
             };
 
-            fetch(this.url + hook.get(), op)
+            fetch(this.url + hook, op)
                 .then(res => {
                     html.info.append(html.infoItem(true));
                 })
